@@ -1,8 +1,10 @@
 const { Router } = require('express');
 const { SuccessResponseObject } = require('../common/http');
+const timesheetController = require('../controllers/timesheet.controller');
 
-const r = Router();
+const router = Router();
 
-r.get('/', (req, res) => res.json(new SuccessResponseObject('demo path live 🚀')));
+router.get('/', (req, res) => res.json(new SuccessResponseObject('demo path live 🚀')));
+router.get('/last-week', timesheetController.last);
 
-module.exports = r;
+module.exports = router;

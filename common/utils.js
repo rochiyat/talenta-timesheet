@@ -1,6 +1,6 @@
 // utils.js
-import moment from 'moment';
-import * as timesheetServices from "../services/timesheet.service.js";
+const moment = require('moment');
+import timesheetServices from '../services/timesheet.service.js';
 
 const startTime = '08:00:00';
 const endTime = '17:00:00';
