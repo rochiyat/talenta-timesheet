@@ -24,7 +24,7 @@ Making use of this template is pretty straightforward. Three ways...
 ├── node_modules/
 ├── package.json
 ├── routes/
-│   ├── demo.route.js
+│   ├── timesheet.route.js
 │   └── index.js
 ├── services/
 ├── common/
@@ -53,7 +53,7 @@ black hole 🙃
 #### `routes/`
 
 - `index.js` – bootstraps all routes. new namespaces should always be registered here
-- `demo.route.js` – sample standalone route
+- `timesheet.route.js` – sample standalone route
 
 #### `services/`
 
