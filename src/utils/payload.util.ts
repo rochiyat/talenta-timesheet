@@ -34,17 +34,6 @@ const payloadUtil = {
       end_time: moment(endDate).format(`YYYY-MM-DD ${endTime}`),
     };
   },
-
-  formatUpdateTaskData(payload: any) {
-    const { taskId, activity, startDate, endDate, id } = payload;
-    return {
-      id: Number(id),
-      task_id: taskId,
-      activity: activity,
-      start_time: moment(startDate).format(`YYYY-MM-DD ${startTime}`),
-      end_time: moment(endDate).format(`YYYY-MM-DD ${endTime}`),
-    };
-  },
 };
 
 export default payloadUtil;
