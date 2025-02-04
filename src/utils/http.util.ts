@@ -9,13 +9,25 @@ const httpUtil = {
     withCredentials: false,
   },
 
-  GET: async (baseURL: string, endpoint: string, params = '', options = {}) => {
+  GET: async (baseURL: string, params = '', options = {}) => {
     const config = {
       baseURL,
       ...httpUtil.baseConfig,
       ...options,
       method: 'get',
       url: baseURL + params,
+    };
+    return axios(config);
+  },
+
+  POST: async (baseURL: string, params = '', payload = {}, options = {}) => {
+    const config = {
+      baseURL,
+      ...httpUtil.baseConfig,
+      ...options,
+      method: 'post',
+      url: baseURL + params,
+      data: payload,
     };
     return axios(config);
   },
