@@ -1,18 +1,9 @@
 import { Request, Response } from 'express';
 import timesheetController from '../../../src/contollers/timesheet.controller';
 import timesheetService from '../../../src/services/timesheet.service';
-import payloadUtil from '../../../src/utils/payload.util';
 
 jest.mock('../../../src/utils/payload.util');
-jest.mock('../../../src/services/timesheet.service', () => ({
-  timesheetService: {
-    lastTimesheet: jest.fn(),
-    timesheetByDate: jest.fn(),
-    timesheetByRangeDate: jest.fn(),
-    getRangeDate: jest.fn(),
-    inputTimesheet: jest.fn(),
-  },
-}));
+jest.mock('../../../src/services/timesheet.service');
 
 describe('timesheetController', () => {
   let req: Partial<Request>;
@@ -30,6 +21,7 @@ describe('timesheetController', () => {
   it('should return last timesheet successfully', async () => {
     (timesheetService.lastTimesheet as jest.Mock).mockResolvedValue({
       status: 200,
+      message: 'Last timesheet',
       data: { timesheet: 'mock_timesheet_data' },
     });
 
