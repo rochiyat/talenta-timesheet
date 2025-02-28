@@ -50,7 +50,7 @@ const timesheetMiddleware = {
 
   validateInputTimesheet: (req: Request, res: Response, next: NextFunction) => {
     const schema = Joi.object().keys({
-      taskId: Joi.string().required(),
+      taskId: Joi.number().required(),
       activity: Joi.string().required(),
       startDate: Joi.string().required(),
       endDate: Joi.string().required(),
