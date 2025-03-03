@@ -10,7 +10,7 @@ const options: swaggerJSDoc.Options = {
       title: 'API Documentation for Talenta Timesheet',
       version: '1.0.0',
       description:
-        "This is a API Documentation for Talenta Timesheet based on the OpenAPI 3.0 specification.  You can find out more about Swagger at [https://swagger.io](https://swagger.io). In the third iteration of the CRUD API, we've switched to the design first approach!",
+        'This is a API Documentation for Talenta Timesheet based on the OpenAPI 3.0 specification. You can find out more about Swagger at [https://swagger.io](https://swagger.io). This repo can public, so please be careful when using it.',
       contact: {
         name: 'Rochiyat',
         url: 'https://github.com/rochiyat',
