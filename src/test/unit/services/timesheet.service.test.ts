@@ -1,17 +1,16 @@
-import { config } from 'dotenv';
-import timesheetService from '../../../src/services/timesheet.service';
-import httpUtil from '../../../src/utils/http.util';
+import timesheetService from '../../../services/timesheet.service';
+import httpUtil from '../../../utils/http.util';
 
-jest.mock('../../../src/utils/http.util', () => ({
+jest.mock('../../../utils/http.util', () => ({
   GET: jest.fn(),
   POST: jest.fn(),
 }));
-jest.mock('../../../src/utils/payload.util');
+jest.mock('../../../utils/payload.util');
 
 const mockCookie = 'mock_cookie';
 const mockUrl = 'http://mock.url';
 
-jest.mock('../../../src/configs/env.config', () => ({
+jest.mock('../../../configs/env.config', () => ({
   urlTalenta: 'http://mock.url',
 }));
 

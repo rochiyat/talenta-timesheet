@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import timesheetMiddleware from '../../../src/middlewares/timesheet.middleware'; // Sesuaikan path
+import timesheetMiddleware from '../../../middlewares/timesheet.middleware';
 import Joi from 'joi';
 
 describe('timesheetMiddleware', () => {

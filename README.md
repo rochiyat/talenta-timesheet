@@ -5,16 +5,14 @@ Talenta Timesheet is a project initiated by our team to simplify the process of 
 ## How to Run Development
 
 ```bash
-npm install
-npm run dev
+git clone https://github.com/rochiyat/talenta-timesheet.git or git clone https://[token-github]@github.com/rochiyat/talenta-timesheet.git
+npm install && npm run dev
 ```
 
 ## How to Run Production
 
 ```bash
-npm install
-npm run build
-npm run start
+npm install && npm run build && npm run start
 ```
 
 ## How to Run Tests
@@ -32,7 +30,7 @@ npm run test ./test/unit/services/timesheet.service.test.ts
 ## How to Run Test Coverage
 
 ```bash
-npm run test -- --coverage
+npm run test:coverage
 ```
 
 ## How to Run Test Coverage for a Specific File
@@ -41,13 +39,25 @@ npm run test -- --coverage
 npm run test ./test/unit/services/timesheet.service.test.ts -- --coverage
 ```
 
-## Postman Collection
+## Swagger Documentation
 
-You can access the Postman collection at the following link:
+Swagger documentation is available at [http://localhost:3000/swagger](http://localhost:3000/swagger)
+Execute several application endpoints using Swagger UI.
 
-[Postman Collection](https://www.postman.com/rochiyat-coding/workspace/share-api/collection/4389128-316bee17-4453-4107-8fd5-9f8c934ec86c?action=share&creator=4389128&active-environment=4389128-e5b122f3-7205-4c53-9081-b89dda0a293b)
+![swagger](./assets/swagger-ui.jpg)
+Swagger UI
 
-## How to Run Postman Collection
 
-To use the Postman collection, add an environment variable `cookie` with the value obtained from logging into Talenta.
+## Contributing
+
+Please read [CONTRIBUTING.md](./CONTRIBUTING.md) for details on our code of conduct.
+
+## Authors
+
+- [Github](https://github.com/rochiyat)
+- [LinkedIn](https://www.linkedin.com/in/rochiyat)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](./LICENSE.md) file for details.
 
