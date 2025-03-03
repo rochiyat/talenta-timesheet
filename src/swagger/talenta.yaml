@@ -6,18 +6,49 @@ components:
         id:
           type: integer
           description: The unique identifier for the timesheet
-        date:
-          type: string
-          description: The date of the timesheet
-        total_duration:
+          example: 2652811
+        task_id:
           type: integer
-          description: The total duration of the timesheet
-          
-  securitySchemes:
-    cookieAuth:
-      type: apiKey
-      in: header
-      name: Cookie
+          description: The unique identifier for the task
+          example: 127234
+        task_title:
+          type: string
+          description: The title of the task
+          example: "E2022DA007 - Example Task"
+        start_time:
+          type: string
+          description: The start time of the timesheet
+          example: "2025-02-28 09:00:00"
+        end_time:
+          type: string
+          description: The end time of the timesheet
+        duration:
+          type: string
+          description: The duration of the timesheet
+          example: "08:00:00"
+        activity:
+          type: string
+          description: The activity of the timesheet
+          example: "Work"
+    InputTimesheet:
+      type: object
+      property:
+        taskId:
+          type: integer
+          description: The task
+          example: 127111
+        activityId:
+          type: integer
+          description: The activity
+          example: 127111
+        startDate:
+          type: string
+          description: The start date
+          example: "2025-02-28"
+        endDate:
+          type: string
+          description: The end date
+          example: "2025-02-28"
 
 paths:
   /timesheet/this-week:
@@ -64,11 +95,53 @@ paths:
                     type: string
                     example: "Unauthorized"
 
+  /timesheet/date/{date}:
+    get:
+      summary: Get timesheets for the date
+      parameters:
+        - name: date
+          in: path
+          required: true
+          schema:
+            type: string
+            example: "2025-03-03"
+      responses:
+        '200':
+          description: A list of timesheets for the date
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  message:
+                    type: string
+                  data:
+                    type: array
+                    items:
+                      date:
+                        type: string
+                      total_duration:
+                        type: string
+                      data:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/Timesheet'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Unauthorized"               
+
   /talenta/input-timesheet:
     post:
       summary: Create a new timesheet
-      security:
-        - cookieAuth: []
       requestBody:
         required: true
         content:
@@ -94,41 +167,3 @@ paths:
                   message:
                     type: string
                     example: "Bad request"
-
-  /talenta/timesheet/{id}:
-    put:  
-      summary: Update a timesheet
-      security:
-        - cookieAuth: []
-      parameters:
-        - name: id
-          in: path
-          required: true
-          schema:
-            type: integer
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Timesheet'
-      responses:
-        '200':
-          description: Timesheet updated successfully
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Timesheet'
-        '401':
-          description: Unauthorized
-        '400':
-          description: Bad request
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    example: "Bad request"
-  

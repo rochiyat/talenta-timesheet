@@ -11,7 +11,7 @@ dotenv.config();
 const timesheetController = {
   lastTimesheet: async (req: Request, res: Response) => {
     try {
-      const { cookie } = req.headers;
+      const cookie = process.env.COOKIE_TALENTA;
       if (!cookie) {
         return returnNonSuccess(req, res, 500, 'Cookie is required');
       }
@@ -28,7 +28,7 @@ const timesheetController = {
 
   timesheetByDate: async (req: Request, res: Response) => {
     try {
-      const { cookie } = req.headers;
+      const cookie = process.env.COOKIE_TALENTA;
       const { date } = req.params;
       if (!cookie) {
         return returnNonSuccess(req, res, 500, 'Cookie is required');
@@ -71,7 +71,7 @@ const timesheetController = {
 
   timesheetByRangeDate: async (req: Request, res: Response) => {
     try {
-      const { cookie } = req.headers;
+      const cookie = process.env.COOKIE_TALENTA;
       const { startDate, endDate } = req.params;
       if (!cookie) {
         return returnNonSuccess(req, res, 500, 'Cookie is required');
@@ -95,7 +95,7 @@ const timesheetController = {
 
   checkTimesheet: async (req: Request, res: Response) => {
     try {
-      const { cookie } = req.headers;
+      const cookie = process.env.COOKIE_TALENTA;
       const { year, month } = req.params;
       if (!cookie) {
         return res.status(500).send('Cookie is required');
@@ -129,7 +129,7 @@ const timesheetController = {
 
   inputTimesheet: async (req: Request, res: Response) => {
     try {
-      const { cookie } = req.headers;
+      const cookie = process.env.COOKIE_TALENTA;
       const data = req.body;
       let response;
       let payload;
