@@ -22,24 +22,37 @@ components:
 paths:
   /timesheet/this-week:
     get:
-      summary: Get timesheet
-      parameters:
-        - name: Cookie
-          in: header
-          required: true
-          schema:
-            type: string
-            format: textarea
-            example: "{{cookie}}"
+      summary: Get timesheets for the current week
       responses:
         '200':
-          description: A list of timesheets
+          description: A list of timesheets for the current week
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Timesheet'
+                type: object
+                properties:
+                  status:
+                    type: string
+                  message:
+                    type: string
+                  data:
+                    type: array
+                    items:
+                      date:
+                        type: string
+                      total_duration:
+                        type: string
+                      data:
+                        type: array
+                        items:
+                          date:
+                            type: string
+                          total_duration:
+                            type: string
+                          data:
+                            type: array
+                            items:
+                              $ref: '#/components/schemas/Timesheet'
         '401':
           description: Unauthorized
           content:
