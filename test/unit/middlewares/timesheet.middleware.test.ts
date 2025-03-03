@@ -96,7 +96,7 @@ describe('timesheetMiddleware', () => {
   test('validateInputTimesheet - harus memanggil next() jika semua data valid', () => {
     req = {
       body: {
-        taskId: 'task123',
+        taskId: 12345,
         activity: 'Coding',
         startDate: '2024-02-01',
         endDate: '2024-02-05',
