@@ -4,6 +4,7 @@ import { returnNonSuccess, returnSuccess } from '../utils/helper.util';
 import timesheetService from '../services/timesheet.service';
 import payloadUtil from '../utils/payload.util';
 import { getMonthStartAndEnd } from '../utils/helper.util';
+import { log } from 'console';
 
 const timesheetController = {
   lastTimesheet: async (req: Request, res: Response) => {
@@ -48,6 +49,7 @@ const timesheetController = {
   timesheetThisWeek: async (req: Request, res: Response) => {
     try {
       const { cookie } = req.headers;
+      console.log('cookie', cookie);
       if (!cookie) {
         return returnNonSuccess(req, res, 500, 'Cookie is required');
       }
@@ -61,6 +63,7 @@ const timesheetController = {
       const formatData = payloadUtil.dataFormated(response.data.daily);
       return returnSuccess(req, res, 200, 'Timesheet this week', formatData);
     } catch (error: any) {
+      console.log('error', error);
       return returnNonSuccess(req, res, 500, error.message);
     }
   },

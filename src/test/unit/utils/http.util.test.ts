@@ -1,6 +1,6 @@
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
-import httpUtil from '../../../src/utils/http.util';
+import httpUtil from '../../../utils/http.util';
 
 describe('httpUtil', () => {
   let mock: MockAdapter;

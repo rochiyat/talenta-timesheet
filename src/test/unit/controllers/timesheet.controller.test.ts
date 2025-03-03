@@ -1,9 +1,9 @@
 import { Request, Response } from 'express';
-import timesheetController from '../../../src/contollers/timesheet.controller';
-import timesheetService from '../../../src/services/timesheet.service';
+import timesheetController from '../../../contollers/timesheet.controller';
+import timesheetService from '../../../services/timesheet.service';
 
-jest.mock('../../../src/utils/payload.util');
-jest.mock('../../../src/services/timesheet.service');
+jest.mock('../../../utils/payload.util');
+jest.mock('../../../services/timesheet.service');
 
 describe('timesheetController', () => {
   let req: Partial<Request>;

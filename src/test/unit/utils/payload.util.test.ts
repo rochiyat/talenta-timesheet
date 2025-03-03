@@ -1,5 +1,5 @@
 import { describe, expect, test } from '@jest/globals';
-import payloadUtil from '../../../src/utils/payload.util';
+import payloadUtil from '../../../utils/payload.util';
 
 describe('dataFormated function', () => {
   test('Mengubah format response dengan benar', () => {
