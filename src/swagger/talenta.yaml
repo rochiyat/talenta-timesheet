@@ -32,23 +32,23 @@ components:
           example: "Work"
     InputTimesheet:
       type: object
-      property:
+      properties:
         taskId:
           type: integer
-          description: The task
-          example: 127111
-        activityId:
-          type: integer
+          description: The task id
+          example: 127546
+        activity:
+          type: string
           description: The activity
-          example: 127111
+          example: Engineering
         startDate:
           type: string
           description: The start date
-          example: "2025-02-28"
+          example: "2025-07-01"
         endDate:
           type: string
           description: The end date
-          example: "2025-02-28"
+          example: "2025-07-31"
 
 paths:
   /timesheet/this-week:
@@ -139,7 +139,7 @@ paths:
                     type: string
                     example: "Unauthorized"               
 
-  /talenta/input-timesheet:
+  /timesheet/input-timesheet:
     post:
       summary: Create a new timesheet
       requestBody:
@@ -147,7 +147,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Timesheet'
+              $ref: '#/components/schemas/InputTimesheet'
       responses:
         '201':
           description: Timesheet created successfully
